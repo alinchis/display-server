@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'app-header-button-overview'
+  name: 'header-button-overview'
 }
 </script>
 

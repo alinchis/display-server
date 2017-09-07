@@ -12,18 +12,19 @@
 
 <script>
 export default {
-  name: 'app-header-tabs-list-item-add'
+  name: 'header-tabs-list-item-add'
 }
 </script>
 
 <style scoped>
 .button {
   background-color: rgb(90,90,90);
-  border-radius: 0 50%;
+  border-radius: 2px 50% 0 50%;
   display: inline-block;
   float: right;
   height: 22px;
-  margin: 5px 5px;
+  margin: 5px 5px 2px 5px;
+  opacity: 0.55;
   stroke-width: 0;
   width: 20px;
 }
@@ -37,6 +38,7 @@ export default {
 .button:hover {
   background-color: green;
   cursor: pointer;
+  opacity: 1;
   stroke: red;
 }
 .button:active {

@@ -1,44 +1,60 @@
 <template>
-  <div class="project_view">
-    <h1>{{ msg }}</h1>
-    <ol v-for="project in projects">
-      <li>{{project.name}}</li>
-    </ol>
-
+  <div id="project_view">
+    <stage-tablist @setActiveTab="changeStage" :current_view="this.currentStage"></stage-tablist>
+    <component v-bind:is="currentStage" class="stage_view"></component>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+// import tablist component
+import StageTablist from './app-project-stage-tablist'
+
+// import view components
+import ViewQuestions from './app-project-stage-view-questions'
+import ViewDataset from './app-project-stage-view-dataset'
+import ViewAquisition from './app-project-stage-view-aquisition'
+import ViewProcessing from './app-project-stage-view-processing'
+import ViewVisualization from './app-project-stage-view-visualization'
+import ViewWriting from './app-project-stage-view-writing'
+import ViewSharing from './app-project-stage-view-sharing'
+import ViewMessaging from './app-project-stage-view-messaging'
 
 export default {
   name: 'app-project',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  components: {
+    'stage-tablist': StageTablist,
+    'questions': ViewQuestions,
+    'dataset': ViewDataset,
+    'aquisition': ViewAquisition,
+    'processing': ViewProcessing,
+    'visualization': ViewVisualization,
+    'writing': ViewWriting,
+    'sharing': ViewSharing,
+    'messaging': ViewMessaging
+  },
+  computed: {
+    currentProject () {
+      return this.$store.getters.current_project
+    },
+    currentStage () {
+      return this.$store.getters.project_selected_stage
     }
   },
-  computed: mapState([
-    'projects'
-  ])
+  methods: {
+    changeStage (value) {
+      console.log(`@project_view: SET active stage - ${value.stage}`)
+      this.$store.dispatch('CHANGE_STAGE_TAB', value)
+    }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style type="text/css">
-html, body {
+<style scoped type="text/css">
+#project_view {
+  display: flex;
+  flex-direction: row;
   height: 100%;
-}
-html {
-  background-image: linear-gradient(rgb(85, 136, 204) 0%, rgb(49, 98, 163) 100%);
-}
-body {
-  background-image: linear-gradient(0deg, transparent 0%, transparent 9px, rgba(255, 255, 255, 0.2) 9px, rgba(255, 255, 255, 0.2) 10px, transparent 10px, transparent 19px, rgba(255, 255, 255, 0.0980392) 19px, rgba(255, 255, 255, 0.0980392) 20px, transparent 20px, transparent 29px, rgba(255, 255, 255, 0.0980392) 29px, rgba(255, 255, 255, 0.0980392) 30px, transparent 30px, transparent 39px, rgba(255, 255, 255, 0.0980392) 39px, rgba(255, 255, 255, 0.0980392) 40px, transparent 40px, transparent 49px, rgba(255, 255, 255, 0.0980392) 49px, rgba(255, 255, 255, 0.0980392) 50px), linear-gradient(-90deg, transparent 0%, transparent 9px, rgba(255, 255, 255, 0.2) 9px, rgba(255, 255, 255, 0.2) 10px, transparent 10px, transparent 19px, rgba(255, 255, 255, 0.0980392) 19px, rgba(255, 255, 255, 0.0980392) 20px, transparent 20px, transparent 29px, rgba(255, 255, 255, 0.0980392) 29px, rgba(255, 255, 255, 0.0980392) 30px, transparent 30px, transparent 39px, rgba(255, 255, 255, 0.0980392) 39px, rgba(255, 255, 255, 0.0980392) 40px, transparent 40px, transparent 49px, rgba(255, 255, 255, 0.0980392) 49px, rgba(255, 255, 255, 0.0980392) 50px);
-  background-size: 50px 50px;
-}
-body {
-  transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  transform-style: preserve-3d;
-  background-color: transparent;
+  width: 100%;
 }
 </style>

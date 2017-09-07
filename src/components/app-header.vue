@@ -1,19 +1,19 @@
 <template>
   <div id="app_header">
-    <projects-tabs-container></projects-tabs-container>
+    <projects-tablist></projects-tablist>
     <div id="app_control_bar">
       <button-overview></button-overview>
       <button-settings></button-settings>
-      <button-login @buttonClick="loadProjects()"></button-login>
+      <button-login @buttonClick="loadTabs()"></button-login>
     </div>
   </div>
 </template>
 
 <script>
-import ButtonLogin from './app-header-button-login.vue'
-import ButtonSettings from './app-header-button-settings.vue'
-import ButtonOverview from './app-header-button-overview.vue'
-import TabsList from './app-header-tabs-list.vue'
+import ButtonLogin from '../assets/header-button-login.vue'
+import ButtonSettings from '../assets/header-button-settings.vue'
+import ButtonOverview from '../assets/header-button-overview.vue'
+import TabsList from './app-header-tablist.vue'
 
 export default {
   name: 'app-header',
@@ -21,12 +21,12 @@ export default {
     'button-login': ButtonLogin,
     'button-settings': ButtonSettings,
     'button-overview': ButtonOverview,
-    'projects-tabs-container': TabsList
+    'projects-tablist': TabsList
   },
   methods: {
-    loadProjects: function () {
-      this.$store.dispatch('LOAD_PROJECT_LIST')
-      console.log(JSON.stringify(this.$store.projects))
+    loadTabs: function () {
+      // this.$router.push({ path: '/project/' + this.currentProject.id })
+      console.log('@app-header: loadDataset')
     }
   }
 }
@@ -34,10 +34,11 @@ export default {
 
 <style scoped>
 #app_header {
-  background-color: rgb(45,45,45);
-  border-bottom: 2px solid rgb(117,117,117);
+  background-color: rgb(40,40,40);
+  border-bottom: 2px solid rgb(80, 80, 80);
   display: flex;
-  height: 30px;
+  flex-direction: row;
+  min-height: 30px;
   width: 100%;
   z-index: 100;
 }
@@ -45,11 +46,10 @@ export default {
 #app_control_bar {
   background-color: transparent;
   color: rgb(117,117,117);
-  display: inline-flex;
+  display: flex;
   float: right;
-  height: 30px;
+  height: 100%;
   justify-content: center;
-  padding: auto;
   right: 0px;
   min-width: 240px;
 }

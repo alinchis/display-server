@@ -12,10 +12,10 @@
 
 <script>
 export default {
-  name: 'app-header-button-login',
+  name: 'header-button-login',
   methods: {
     loadProjects: function () {
-      console.log('testing buttons')
+      console.log('@login_button: clickButton')
       this.$emit('buttonClick')
     }
   }

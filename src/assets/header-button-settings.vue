@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'app-header-button-settings'
+  name: 'header-button-settings'
 }
 </script>
 
