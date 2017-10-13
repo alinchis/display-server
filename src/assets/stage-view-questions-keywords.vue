@@ -37,8 +37,9 @@ export default {
       if (event.currentTarget.textContent.trim().length > 1) {
         this.keywords.push(event.currentTarget.textContent.trim())
         console.log('@stage-questions.keywords: ADD key > ', event.currentTarget.textContent.trim())
+      } else {
+        console.log('@stage-questions.keywords: ADD key fail, invalid word > ', event.currentTarget.textContent)
       }
-      console.log('@stage-questions.keywords: ADD key fail, invalid word > ', event.currentTarget.textContent)
       this.clearInput(event)
     },
     clearInput (event) {

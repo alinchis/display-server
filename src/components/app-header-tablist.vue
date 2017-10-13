@@ -29,7 +29,6 @@ export default {
   },
   computed: {
     tabsList () {
-      console.log('@tabList: ', this.$store.getters.projects_tablist)
       return this.$store.getters.projects_tablist
     }
   },

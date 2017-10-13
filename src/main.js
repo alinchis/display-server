@@ -4,8 +4,11 @@ import Vue from 'vue'
 import App from './app'
 import router from './router'
 import store from './store'
+import VueLayers from 'vuelayers'
 
 Vue.config.productionTip = false
+
+Vue.use(VueLayers)
 
 /* eslint-disable no-new */
 new Vue({
@@ -13,5 +16,6 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  render: h => h(App)
 })

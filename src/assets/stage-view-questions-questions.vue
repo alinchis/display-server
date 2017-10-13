@@ -5,10 +5,11 @@
       :key="index"
       :qindex="index"
       :question_text="question"
+      @updateQuestion="updateQuestionItem"
       @clearQuestion="clearQuestionItem"
       @deleteQuestion="deleteQuestionItem">
     </questions-item>
-    <div v-if="this.maxQuestions" id="add-question" v-on:click="addQuestion">+</div>
+    <div v-if="this.maxQuestions" id="add-question" v-on:click="addQuestionItem">+</div>
   </div>
 </template>
 
@@ -31,9 +32,13 @@ export default {
   },
   props: ['questions'],
   methods: {
-    addQuestion () {
+    addQuestionItem () {
       console.log('@stage_questions.questions: addQuestion')
       this.$store.dispatch('ADD_QUESTION_ITEM')
+    },
+    updateQuestionItem (value) {
+      console.log('@stage_questions.questions: clearQuestionItem', value)
+      this.$store.dispatch('UPDATE_QUESTION_ITEM', {index: value.index, text: value.text})
     },
     clearQuestionItem (value) {
       console.log('@stage_questions.questions: clearQuestionItem', value)
@@ -59,6 +64,7 @@ export default {
   margin-top: 5px;
   padding: 10px;
   text-align: center;
+  user-select: none;
 }
 #add-question:active {
   background-color: gray;

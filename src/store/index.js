@@ -6,9 +6,58 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    user_profile: {},
-    projects: [],
-    saved_state: {}
+    user_profile: {
+      id: Number,
+      name: Text
+    },
+    projects: [
+      {
+        id: Number,
+        name: Text,
+        stages: [
+          {
+            'id': 1,
+            'name': 'questions',
+            'title': '',
+            'abstract': '',
+            'keywords': [],
+            'questions': []
+          },
+          {
+            'id': 2,
+            'name': 'dataset'
+          },
+          {
+            'id': 3,
+            'name': 'aquisition'
+          },
+          {
+            'id': 4,
+            'name': 'processing'
+          },
+          {
+            'id': 5,
+            'name': 'visualizing'
+          },
+          {
+            'id': 6,
+            'name': 'writing',
+            'paper': []
+          },
+          {
+            'id': 7,
+            'name': 'sharing'
+          },
+          {
+            'id': 8,
+            'name': 'messaging'
+          }
+        ]
+      }
+    ],
+    saved_state: {
+      opened_projects: []
+    }
   },
 
   // calls that will commit changes to your store
@@ -64,6 +113,11 @@ const store = new Vuex.Store({
     ADD_QUESTION_ITEM: function ({ commit, state }) {
       console.log('@store: ADD_QUESTION_ITEM ')
       commit('ADD_QUESTION')
+    },
+    // update question text
+    UPDATE_QUESTION_ITEM: function ({ commit, state }, { index, text }) {
+      console.log('@store: UPDATE_QUESTION_ITEM no: ', index)
+      commit('UPDATE_QUESTION', { index, text })
     },
     // clear question text
     CLEAR_QUESTION_ITEM: function ({ commit, state }, { index }) {
@@ -147,10 +201,15 @@ const store = new Vuex.Store({
       console.log('@store: ADD_QUESTION ')
       state.projects.filter(project => project.id === store.getters.project_selected_id)[0].stages[0].questions.push('')
     },
+    // update question text
+    UPDATE_QUESTION: function (state, { index, text }) {
+      console.log('@store: UPDATE_QUESTION no: ', index)
+      state.projects.filter(project => project.id === store.getters.project_selected_id)[0].stages[0].questions.splice(index, 1, text)
+    },
     // clear question text
     CLEAR_QUESTION: function (state, { index }) {
       console.log('@store: CLEAR_QUESTION ', index)
-      state.projects.filter(project => project.id === store.getters.project_selected_id)[0].stages[0].questions[index] = ''
+      state.projects.filter(project => project.id === store.getters.project_selected_id)[0].stages[0].questions.splice(index, 1, '')
     },
     // delete question item
     DELETE_QUESTION: function (state, { index }) {

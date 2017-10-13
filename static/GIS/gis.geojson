@@ -1,0 +1,27 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "osm_id": "583423", "code": 5603, "fclass": "tram_stop", "name": "Șoseaua Ștefan cel Mare" }, "geometry": { "type": "Point", "coordinates": [ 26.1196795, 44.4516101 ] } },
+{ "type": "Feature", "properties": { "osm_id": "14995001", "code": 5603, "fclass": "tram_stop", "name": "Ceaikovski" }, "geometry": { "type": "Point", "coordinates": [ 26.1085301, 44.465391 ] } },
+{ "type": "Feature", "properties": { "osm_id": "14995024", "code": 5603, "fclass": "tram_stop", "name": "Șoseaua Ștefan cel Mare" }, "geometry": { "type": "Point", "coordinates": [ 26.1048297, 44.4536259 ] } },
+{ "type": "Feature", "properties": { "osm_id": "21458611", "code": 5603, "fclass": "tram_stop", "name": "Horei" }, "geometry": { "type": "Point", "coordinates": [ 26.1240958, 44.4415366 ] } },
+{ "type": "Feature", "properties": { "osm_id": "25611279", "code": 5603, "fclass": "tram_stop", "name": "Spumotim" }, "geometry": { "type": "Point", "coordinates": [ 21.2577912, 45.7370733 ] } },
+{ "type": "Feature", "properties": { "osm_id": "27607896", "code": 5661, "fclass": "ferry_terminal", "name": "Rumeli Kavağı" }, "geometry": { "type": "Point", "coordinates": [ 29.0752339, 41.1816302 ] } },
+{ "type": "Feature", "properties": { "osm_id": "27609492", "code": 5661, "fclass": "ferry_terminal", "name": "Ayvansaray" }, "geometry": { "type": "Point", "coordinates": [ 28.9448547, 41.0408106 ] } },
+{ "type": "Feature", "properties": { "osm_id": "27610949", "code": 5661, "fclass": "ferry_terminal", "name": "Sütlüce" }, "geometry": { "type": "Point", "coordinates": [ 28.940673, 41.0466641 ] } },
+{ "type": "Feature", "properties": { "osm_id": "27611418", "code": 5661, "fclass": "ferry_terminal", "name": "Yeniköy Şehir Hatları İskelesi" }, "geometry": { "type": "Point", "coordinates": [ 29.071195, 41.1217127 ] } },
+{ "type": "Feature", "properties": { "osm_id": "27868482", "code": 5661, "fclass": "ferry_terminal", "name": null }, "geometry": { "type": "Point", "coordinates": [ 41.6548316, 42.1527338 ] } },
+{ "type": "Feature", "properties": { "osm_id": "27890352", "code": 5661, "fclass": "ferry_terminal", "name": null }, "geometry": { "type": "Point", "coordinates": [ 33.3755385, 45.1879731 ] } },
+{ "type": "Feature", "properties": { "osm_id": "60693365", "code": 5661, "fclass": "ferry_terminal", "name": "Brestova" }, "geometry": { "type": "Point", "coordinates": [ 14.2237365, 45.1444423 ] } },
+{ "type": "Feature", "properties": { "osm_id": "63912327", "code": 5661, "fclass": "ferry_terminal", "name": null }, "geometry": { "type": "Point", "coordinates": [ 15.2273177, 44.1169305 ] } },
+{ "type": "Feature", "properties": { "osm_id": "64825410", "code": 5661, "fclass": "ferry_terminal", "name": "Άγιος Κωνσταντίνος" }, "geometry": { "type": "Point", "coordinates": [ 22.8597954, 38.7590878 ] } },
+{ "type": "Feature", "properties": { "osm_id": "73075218", "code": 5661, "fclass": "ferry_terminal", "name": "Κυλλήνη" }, "geometry": { "type": "Point", "coordinates": [ 21.1489917, 37.9378191 ] } },
+{ "type": "Feature", "properties": { "osm_id": "88699742", "code": 5621, "fclass": "bus_stop", "name": null }, "geometry": { "type": "Point", "coordinates": [ 23.6362182, 46.7817168 ] } },
+{ "type": "Feature", "properties": { "osm_id": "89318662", "code": 5661, "fclass": "ferry_terminal", "name": "Passenger ferry to Korčula" }, "geometry": { "type": "Point", "coordinates": [ 17.1739692, 42.9743241 ] } },
+{ "type": "Feature", "properties": { "osm_id": "90758053", "code": 5603, "fclass": "tram_stop", "name": "Sala Sporturilor" }, "geometry": { "type": "Point", "coordinates": [ 23.5683397, 46.7672335 ] } },
+{ "type": "Feature", "properties": { "osm_id": "97052963", "code": 5603, "fclass": "tram_stop", "name": "Galmopan" }, "geometry": { "type": "Point", "coordinates": [ 28.0340316, 45.4605655 ] } },
+{ "type": "Feature", "properties": { "osm_id": "100990463", "code": 5621, "fclass": "bus_stop", "name": null }, "geometry": { "type": "Point", "coordinates": [ 26.1052313, 44.3884368 ] } },
+{ "type": "Feature", "properties": { "osm_id": "101067273", "code": 5621, "fclass": "bus_stop", "name": "Șoseaua Olteniței" }, "geometry": { "type": "Point", "coordinates": [ 26.120982, 44.3948539 ] } },
+{ "type": "Feature", "properties": { "osm_id": "102936545", "code": 5603, "fclass": "tram_stop", "name": "Cimitirul Eroii Revoluției" }, "geometry": { "type": "Point", "coordinates": [ 26.0959756, 44.4059663 ] } },
+{ "type": "Feature", "properties": { "osm_id": "109580905", "code": 5621, "fclass": "bus_stop", "name": "Centru [5-40,2-43]" }, "geometry": { "type": "Point", "coordinates": [ 28.6528692, 44.1799835 ] } }
+]}

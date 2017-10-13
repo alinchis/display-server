@@ -3,9 +3,9 @@
     <div id="question-text"
       contentEditable=true
       data-text="Enter Keyword"
-      @keyup.enter="addKeyword"
-      @keyup.esc="clearInput"
-      >{{this.questionText}}
+      @keyup.enter="updateQuestion"
+      >
+      <span>{{questionText}}</span>
     </div>
     <clear-text @clickButton="clearQuestion" @dblclickButton="deleteQuestion"></clear-text>
   </div>
@@ -30,6 +30,14 @@ export default {
   },
   props: ['qindex'],
   methods: {
+    updateQuestion (event) {
+      if (event.currentTarget.textContent.trim().length > 1) {
+        console.log('@stage-questions.questions.item: ADD question > ', event.currentTarget.textContent.trim())
+        this.$emit('updateQuestion', {index: this.questionIndex, text: event.currentTarget.textContent.trim()})
+      } else {
+        console.log('@stage-questions.questions.item: ADD question fail, invalid question > ', event.currentTarget.textContent)
+      }
+    },
     clearQuestion () {
       console.log('@stage_questions.questions.item: clearQuestion', this.questionIndex)
       this.$emit('clearQuestion', this.questionIndex)
@@ -44,7 +52,7 @@ export default {
 
 <style scoped>
 [contentEditable=true]:empty:not(:focus):before {
-    content:attr(data-text)
+  content:attr(data-text)
 }
 #add-question {
   background-color: #3162a3;
@@ -83,7 +91,6 @@ export default {
   font-weight: 400;
   line-height: 24px;
   overflow: auto;
-  resize: vertical;
   text-align: justify;
   text-indent: 0px;
   width: 100%;
