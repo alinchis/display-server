@@ -54,6 +54,7 @@ html, body {
 }
 html {
   background-image: linear-gradient(rgb(85, 136, 204) 0%, rgb(49, 98, 163) 100%);
+
 }
 body {
   background-image: linear-gradient(0deg, transparent 0%, transparent 9px, rgba(255, 255, 255, 0.2) 9px, rgba(255, 255, 255, 0.2) 10px, transparent 10px, transparent 19px, rgba(255, 255, 255, 0.0980392) 19px, rgba(255, 255, 255, 0.0980392) 20px, transparent 20px, transparent 29px, rgba(255, 255, 255, 0.0980392) 29px, rgba(255, 255, 255, 0.0980392) 30px, transparent 30px, transparent 39px, rgba(255, 255, 255, 0.0980392) 39px, rgba(255, 255, 255, 0.0980392) 40px, transparent 40px, transparent 49px, rgba(255, 255, 255, 0.0980392) 49px, rgba(255, 255, 255, 0.0980392) 50px), linear-gradient(-90deg, transparent 0%, transparent 9px, rgba(255, 255, 255, 0.2) 9px, rgba(255, 255, 255, 0.2) 10px, transparent 10px, transparent 19px, rgba(255, 255, 255, 0.0980392) 19px, rgba(255, 255, 255, 0.0980392) 20px, transparent 20px, transparent 29px, rgba(255, 255, 255, 0.0980392) 29px, rgba(255, 255, 255, 0.0980392) 30px, transparent 30px, transparent 39px, rgba(255, 255, 255, 0.0980392) 39px, rgba(255, 255, 255, 0.0980392) 40px, transparent 40px, transparent 49px, rgba(255, 255, 255, 0.0980392) 49px, rgba(255, 255, 255, 0.0980392) 50px);
@@ -63,5 +64,9 @@ body {
   transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   transform-style: preserve-3d;
   background-color: transparent;
+}
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
 }
 </style>

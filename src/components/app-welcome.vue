@@ -26,4 +26,8 @@ h1 {
 h2 {
   font-size: 1.65em;
 }
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
 </style>

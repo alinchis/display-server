@@ -1,28 +1,28 @@
 <template>
-  <div id="project_view">
-    <stage-tablist @setActiveTab="changeStage" :current_view="this.currentStage"></stage-tablist>
+  <div id="app-project">
+    <stage-nav @setActiveTab="changeStage" :current_view="this.currentStage"></stage-nav>
     <component v-bind:is="currentStage" class="stage_view"></component>
   </div>
 </template>
 
 <script>
 // import tablist component
-import StageTablist from './app-project-stage-tablist'
+import StageNav from './app-project/stage-nav'
 
 // import view components
-import ViewQuestions from './app-project-stage-view-questions'
-import ViewDataset from './app-project-stage-view-dataset'
-import ViewAquisition from './app-project-stage-view-aquisition'
-import ViewProcessing from './app-project-stage-view-processing'
-import ViewVisualization from './app-project-stage-view-visualization'
-import ViewWriting from './app-project-stage-view-writing'
-import ViewSharing from './app-project-stage-view-sharing'
-import ViewMessaging from './app-project-stage-view-messaging'
+import ViewQuestions from './app-project/stage/stage-questions'
+import ViewDataset from './app-project/stage/stage-dataset'
+import ViewAquisition from './app-project/stage/stage-aquisition'
+import ViewProcessing from './app-project/stage/stage-processing'
+import ViewVisualization from './app-project/stage/stage-visualization'
+import ViewWriting from './app-project/stage/stage-writing'
+import ViewSharing from './app-project/stage/stage-sharing'
+import ViewMessaging from './app-project/stage/stage-messaging'
 
 export default {
   name: 'app-project',
   components: {
-    'stage-tablist': StageTablist,
+    'stage-nav': StageNav,
     'questions': ViewQuestions,
     'dataset': ViewDataset,
     'aquisition': ViewAquisition,
@@ -51,7 +51,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped type="text/css">
-#project_view {
+#app-project {
   display: flex;
   flex-direction: row;
   height: 100%;

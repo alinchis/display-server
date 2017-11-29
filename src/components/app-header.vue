@@ -1,7 +1,7 @@
 <template>
-  <div id="app_header">
+  <div id="app-header">
     <projects-tablist></projects-tablist>
-    <div id="app_control_bar">
+    <div id="app-control_bar">
       <button-overview></button-overview>
       <button-settings></button-settings>
       <button-login @buttonClick="loadTabs()"></button-login>
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import ButtonLogin from '../assets/header-button-login.vue'
-import ButtonSettings from '../assets/header-button-settings.vue'
-import ButtonOverview from '../assets/header-button-overview.vue'
-import TabsList from './app-header-tablist.vue'
+import ButtonLogin from './app-header/button-login.vue'
+import ButtonSettings from './app-header/button-settings.vue'
+import ButtonOverview from './app-header/button-overview.vue'
+import TabsList from './app-header/tablist.vue'
 
 export default {
   name: 'app-header',
@@ -33,7 +33,14 @@ export default {
 </script>
 
 <style scoped>
-#app_header {
+::-webkit-scrollbar {
+  width: 0px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+  -webkit-border-radius: 6px;
+}
+#app-header {
   background-color: rgb(40,40,40);
   border-bottom: 2px solid rgb(80, 80, 80);
   display: flex;
@@ -43,7 +50,7 @@ export default {
   z-index: 100;
 }
 
-#app_control_bar {
+#app-control_bar {
   background-color: transparent;
   color: rgb(117,117,117);
   display: flex;
