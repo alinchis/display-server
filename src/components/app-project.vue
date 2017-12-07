@@ -1,7 +1,7 @@
 <template>
   <div id="app-project">
     <stage-nav @setActiveTab="changeStage" :current_view="this.currentStage"></stage-nav>
-    <component v-bind:is="currentStage" class="stage_view"></component>
+    <component v-bind:is="this.currentStage" class="stage_view"></component>
   </div>
 </template>
 

@@ -3,11 +3,11 @@
     <div
       class="list-item"
       v-for="(item, index) in this.itemsList"
-      :class="{ selected: selectedItem === index}"
-      :key="index"
+      :class="{ selected: item.visible === true}"
+      :key="item.name"
       :ref="index"
-      v-on:click="clickItem(index)">
-      {{item}}
+      v-on:click="clickItem(item)">
+      {{item.name}}
     </div>
   </div>
 </template>
@@ -18,18 +18,14 @@ export default {
   name: 'stage-sides-simplelist',
   props: ['itemlist', 'selected'],
   computed: {
-    selectedItem () {
-      // return this.$props.selected
-      return 0
-    },
     itemsList () {
       return this.$props.itemlist
     }
   },
   methods: {
-    clickItem (index) {
-      console.log('@simpleList: clickItem', index)
-      this.$emit('clickItem', index)
+    clickItem (item) {
+      console.log('@simpleList: clickItem', item)
+      this.$emit('clickItem', item.index)
     }
   }
 }

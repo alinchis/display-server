@@ -16,6 +16,7 @@ export default {
   mounted: function () {
     this.$store.dispatch('LOAD_DATASET')
     console.log(JSON.stringify(this.$store.projects))
+    this.$store.dispatch('LOAD_MAP')
   }
 }
 </script>

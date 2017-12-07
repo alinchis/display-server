@@ -8,7 +8,7 @@
       @importItem=""
       @exportItem="">
     </buttons-bar>
-    <simple-list :itemlist="itemsList"></simple-list>
+    <simple-list :itemlist="itemsList" @clickItem="toggleView"></simple-list>
   </div>
 </template>
 
@@ -24,7 +24,14 @@ export default {
   },
   computed: {
     itemsList () {
-      return this.$store.getters.current_project.stages[0].keywords
+      var maplist = this.$store.getters.visualizing_getmaplist.reverse()
+      return maplist
+    }
+  },
+  methods: {
+    toggleView (value) {
+      console.log(`@project_visualizing: toggle item show - ${value}`)
+      this.$store.dispatch('VISUALIZING_ITEM_TOGGLE', value)
     }
   }
 }

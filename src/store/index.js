@@ -37,7 +37,8 @@ const store = new Vuex.Store({
           },
           {
             'id': 5,
-            'name': 'visualizing'
+            'name': 'visualizing',
+            'dataset': []
           },
           {
             'id': 6,
@@ -57,7 +58,8 @@ const store = new Vuex.Store({
     ],
     saved_state: {
       opened_projects: []
-    }
+    },
+    dataset: []
   },
 
   // calls that will commit changes to your store
@@ -86,6 +88,16 @@ const store = new Vuex.Store({
     //     console.log(err)
     //   })
     // },
+
+    // test GeoJSON
+    LOAD_MAP: function ({ commit }) {
+      axios.get('/api/geotest').then((response) => {
+        commit('SET_MAP', { map: response.data })
+      }, (err) => {
+        console.log(err)
+      })
+    },
+
     // close project tab
     CLOSE_PROJECT_TAB: function ({ commit, state }, { index }) {
       commit('CLOSE_PROJECT', { index })
@@ -128,6 +140,13 @@ const store = new Vuex.Store({
     DELETE_QUESTION_ITEM: function ({ commit, state }, { index }) {
       console.log('@store: DELETE_QUESTION_ITEM ', index)
       commit('DELETE_QUESTION', { index })
+    },
+    // /////////////////////////////////////////////////////////////////////////
+    // stage visualizing
+    // item change toggle view
+    VISUALIZING_ITEM_TOGGLE: function ({ commit, state }, index) {
+      console.log('@store: VISUALIZATION_ITEM_TOGGLE', index)
+      commit('VISUALIZING_ITEM_TOGGLE', index)
     }
   },
   // calls that update the store
@@ -154,6 +173,13 @@ const store = new Vuex.Store({
     // ADD_PROJECT: (state, { project }) => {
     //   state.projects.push(project)
     // },
+
+    // set dataset from file
+    SET_MAP: (state, { map }) => {
+      // console.log('@SET_MAP: ', map.data)
+      store.state.dataset = map.data
+    },
+
     // close project
     CLOSE_PROJECT: (state, {index}) => {
       console.log('@store: CLOSE_PROJECT tab: ' + index)
@@ -215,7 +241,18 @@ const store = new Vuex.Store({
     DELETE_QUESTION: function (state, { index }) {
       console.log('@store: DELETE_QUESTION ', index)
       state.projects.filter(project => project.id === store.getters.project_selected_id)[0].stages[0].questions.splice(index, 1)
-    }
+    },
+
+    // /////////////////////////////////////////////////////////////////////////
+    // stage visualizing
+    // toggle item view
+    VISUALIZING_ITEM_TOGGLE: function (state, index) {
+      console.log('@store_mutate: VISUALIZING_ITEM_TOGGLE ', index)
+      var itemindex = state.projects[0].stages[4].dataset.findIndex(item => item.index === index)
+      var itemvalue = state.projects[0].stages[4].dataset[itemindex].visible
+      console.log('@store_mutate: current value = ' + itemvalue + ', at index: ' + itemindex)
+      itemvalue = state.projects[0].stages[4].dataset[itemindex].visible = !itemvalue
+    },
   },
   // calls that grab computed data from the store
   getters: {
@@ -249,11 +286,37 @@ const store = new Vuex.Store({
     },
     projects_tablist: state => {
       return state.saved_state.opened_projects
-    }
+    },
     // get only completed projects
     // openProjects: state => {
     //   return state.projects.filter(project => !project.completed)
     // }
+    dataset_getmaplist: state => {
+      var maplist = []
+      state.dataset.forEach(function(mapitem) {
+        maplist.push(mapitem.name)
+      })
+      return maplist
+    },
+    dataset_getmaps: state => {
+      var maps = []
+      state.dataset.forEach(function(mapitem) {
+        maps.push(JSON.parse(mapitem.data))
+      })
+      return maps
+    },
+    visualizing_getmaplist: state => {
+      var maplist = []
+      var maps = state.dataset
+      state.projects[0].stages[4].dataset.forEach(function(item) {
+        maplist.push({
+          name: maps[item.index].name,
+          index: item.index,
+          visible: item.visible
+        })
+      })
+      return maplist
+    }
   },
   // multiple stores, part of the same store tree
   modules: {
